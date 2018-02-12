@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "autocannon": "^0.16.5",
+    "pino-http": "*"
+  }
+}

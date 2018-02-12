@@ -1,0 +1,55 @@
+➜  benchmark bash ./bench.sh 3002
+autocannon -c 100 -p 10 http://localhost:3002
+Running 10s test @ http://localhost:3002
+100 connections with 10 pipelining factor
+
+Stat         Avg    Stdev  Max
+Latency (ms) 13.34  41.88  507
+Req/Sec      7378.5 1409.6 8815
+Bytes/Sec    817 kB 153 kB 983 kB
+
+74k requests in 10s, 8.19 MB read
+➜  benchmark bash ./bench.sh 3002
+autocannon -c 100 -p 10 http://localhost:3002
+Running 10s test @ http://localhost:3002
+100 connections with 10 pipelining factor
+
+Stat         Avg    Stdev  Max
+Latency (ms) 11.8   36.07  390
+Req/Sec      8344.4 593.26 8815
+Bytes/Sec    927 kB 70 kB  983 kB
+
+83k requests in 10s, 9.26 MB read
+➜  benchmark bash ./bench.sh 3002
+autocannon -c 100 -p 10 http://localhost:3002
+Running 10s test @ http://localhost:3002
+100 connections with 10 pipelining factor
+
+Stat         Avg    Stdev   Max
+Latency (ms) 12.15  37.8    604
+Req/Sec      8100   1229.48 8807
+Bytes/Sec    898 kB 137 kB  983 kB
+
+81k requests in 10s, 8.99 MB read
+➜  benchmark bash ./bench.sh 3002
+autocannon -c 100 -p 10 http://localhost:3002
+Running 10s test @ http://localhost:3002
+100 connections with 10 pipelining factor
+
+Stat         Avg    Stdev   Max
+Latency (ms) 11.51  34.99   386
+Req/Sec      8549   281.48  8983
+Bytes/Sec    950 kB 39.5 kB 1.02 MB
+
+85k requests in 10s, 9.49 MB read
+➜  benchmark bash ./bench.sh 3002
+autocannon -c 100 -p 10 http://localhost:3002
+Running 10s test @ http://localhost:3002
+100 connections with 10 pipelining factor
+
+Stat         Avg    Stdev Max
+Latency (ms) 11.55  35.22 375
+Req/Sec      8519   357.3 9007
+Bytes/Sec    947 kB 42 kB 1.02 MB
+
+85k requests in 10s, 9.46 MB read
