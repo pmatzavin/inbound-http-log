@@ -15,7 +15,10 @@ const server = (port, logger) => {
 
     server.listen(port);
 
-    console.log(`listening at: ${port}`)
+    console.log(JSON.stringify({
+        listening: true,
+        port
+    }));
 };
 
 module.exports = server;

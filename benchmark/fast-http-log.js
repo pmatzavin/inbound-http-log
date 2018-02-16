@@ -1,4 +1,4 @@
-const logger = require('../lib');
+require('../index')();
 
 const server = require('./server');
 const port = 3001;
