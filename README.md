@@ -7,7 +7,7 @@ Log the inbound HTTP traffic of yout server (requests/responses).
 - Log each served request/response.
 - The default log format is JSON ([Default Format](#default-format)).
 - Supports custom message formats ([Custom Format](#custom-format)).
-- Supports request IDs ([Reques Id](#request-id)).
+- Supports request IDs ([Request Id](#request-id)).
 - Supports request header white-listing ([Log Headers](#log-headers))
 - It can be used with any `Node.js` framework (`Express`, `Koa`, or others).
 
