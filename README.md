@@ -20,9 +20,11 @@ Log the inbound HTTP traffic of yout server (requests/responses).
 ## How To Use
 
 Install:
+
 `npm i --save fast-http-log`
 
 Use it in your server:
+
 `require('fast-http-log')()`
 
 <a name="examples"></a>
