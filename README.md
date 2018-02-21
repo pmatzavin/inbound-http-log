@@ -65,10 +65,12 @@ See [examples/requestId.js](https://github.com/pmatzavin/fast-http-log/blob/mast
 <a name="log-headers"></a>
 ## Log Headers
 
-By default All the request's headers will be logged.
+By default all the request's headers will be logged.
 
-If this is not the desired behavior then you can specify which request headers will be loged.
-To do this, youcan specify an Array of headers in the options.
+If this is not the desired behavior,
+ then you can specify which request headers will be logged.
+
+To do this, give an Array of headers in the `options` Object.
 
 See [examples/headers.js](https://github.com/pmatzavin/fast-http-log/blob/master/examples/headers.js)
 
