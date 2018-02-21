@@ -31,8 +31,6 @@ The examples can be found in the [examples](https://github.com/pmatzavin/fast-ht
 <a name="default-format"></a>
 ## Default Format
 
-### Default Format
-
 ```json
 {
   "req": {
