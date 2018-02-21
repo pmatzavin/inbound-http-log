@@ -1,21 +1,27 @@
 # FastHttpLog
 
-Log the HTTP requests that are coming to your server and the corresponding responses.
-
-## About
-
-- `FastHttpLog` is a Fast HTTP logger for NODE.js ([Benchmark](#benchmark)).
+Log the inbound HTTP traffic of yout server (requests/responses).
 
 ## Features
 
-- Log each served request/response ([Log Message].
+- Log each served request/response.
 - The default log format is JSON ([Default Format](#default-format)).
 - Supports custom message formats ([Custom Format](#custom-format)).
-- Supports request IDs.
-- Supports requuset header whitelisting ([Log Headers](#log-headers))
-- It can be used with any `Node.js` framework (`Express`, `Koa`, and others).
-- It is Simple to use, by just adding one line to your code([Examples](#examples)).
+- Supports request IDs ([Reques Id](#request-id)).
+- Supports request header white-listing ([Log Headers](#log-headers))
+- It can be used with any `Node.js` framework (`Express`, `Koa`, or others).
+
 - It has no other dependencies. 
+- It is simple to use, by just adding one line to your code([How To Use](#how-to-use)).
+
+<a name="how-to-use"></a>
+## How To Use
+
+Install:
+`npm i --save fast-http-log`
+
+Use it in your server:
+`require('fast-http-log')()`
 
 <a name="examples"></a>
 ## Examples
