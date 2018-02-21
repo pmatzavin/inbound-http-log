@@ -1,4 +1,4 @@
-require('fastHttpServer')({
+require('fast-http-log')({
     stringify: (obj) => { // See the comment at end of file to see the available data.
         return `${obj.req.method} ${obj.req.url} ${obj.res.status} ${obj.responseTime}ms`
     }
