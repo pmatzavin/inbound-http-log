@@ -1,3 +1,5 @@
+const os = require('os');
+
 const http = require('http');
 const test = require('tap').test;
 
@@ -36,9 +38,18 @@ const getListen = shouldReturnErr => (t, cb) => {
     })
 };
 
+const assertMsg = (msg, t) => {
+    const parsed = JSON.parse(msg);
+    t.equal(typeof parsed.pid === 'number', true, 'should log "pid"');
+    t.equal(typeof parsed.hostname === 'string', true, 'should log hostname');
+    delete parsed.pid;
+    delete parsed.hostname;
+    t.matchSnapshot(parsed, 'output');
+}
+
 test('log the request and the response', function(t) {
     logger.info = msg => {
-        t.matchSnapshot(msg, 'output');
+        assertMsg(msg, t);
     }
 
     fastHttpLog({logger});
@@ -64,7 +75,7 @@ test('use the "error" level when status equals to 5xx', function(t) {
     });
     
     logger.error = msg => {
-        t.matchSnapshot(msg, 'output');
+        assertMsg(msg, t);
     }
 
     getListen(true)(t, () => {
@@ -82,11 +93,22 @@ test('log the "headers" that were specified in the passed options', function(t) 
     });
     
     logger.info = msg => {
-        t.matchSnapshot(msg, 'output');
+        assertMsg(msg, t);
     }
 
     getListen()(t, () => {
         request(t);
+    });
+});
+
+test('not throw if create server has no argument', function(t) {
+    fastHttpLog.reset();
+    fastHttpLog();
+
+    const server = http.createServer();
+
+    server.listen(port, hostname, () => {
+        server.close(() => t.end());
     });
 });
 
