@@ -2,69 +2,75 @@
 
 Log the HTTP requests that are coming to your server and the corresponding responses.
 
+## About
+
+- `FastHttpLog` is a Fast HTTP logger for NODE.js ([Benchmark](#benchmark)).
+
 ## Features
 
-- It is fast (The fastest Node.js HTTP logger as far as I know) ([Benchmark](#benchmark)).
+- Log each served request/response ([Log Message].
 - The default log format is JSON ([Default Format](#default-format)).
-- Simple to use. It Can be used with zero configuration ([Examples](#examples)).
-- You can define your own log formats ([Custom Format](#custom-format)).
-- You can define a request's header to be used as an id for the request/response transaction ([Trace Id](#trace-id)).
-- It has no other dependencies. So it can be used with any `Node.js` framework (`Express`, `Koa`, and others).
+- Supports custom message formats ([Custom Format](#custom-format)).
+- Supports request IDs.
+- Supports requuset header whitelisting ([Log Headers](#log-headers))
+- It can be used with any `Node.js` framework (`Express`, `Koa`, and others).
+- It is Simple to use, by just adding one line to your code([Examples](#examples)).
+- It has no other dependencies. 
 
 <a name="examples"></a>
 ## Examples
 
 The examples can be found in the [examples](https://github.com/pmatzavin/fast-http-log/tree/master/examples) folder.
 
-The simplest example can be seen in [examples/hello.js](https://github.com/pmatzavin/fast-http-log/blob/master/examples/hello.js)
-
 <a name="default-format"></a>
 ## Default Format
 
-### Request
-
-This will be logged in one line with no newline characters:
+### Default Format
 
 ```json
 {
-  "date": "2018-01-14T13:41:39.993Z",
-  "method": "GET",
-  "url": "/api/v1/resource?key=val",
-  "headers": {
-    "host": "localhost:3001",
-    "user-agent": "curl/7.43.0",
-    "accept": "*/*"
+  "req": {
+    "time": 1519231699701,
+    "method": "GET",
+    "url": "/",
+    "headers": {
+      "host": "localhost:3001",
+      "connection": "keep-alive"
+    },
+    "from": "::ffff:127.0.0.1"
   },
-  "from": "::1:63409",
-  "tag": "inbound_request"
-}
-```
-
-### Response
-
-This will be logged in one line with no newline characters:
-
-```json
-{
-  "date": "2018-01-14T13:41:40.000Z",
-  "statusCode": 200,
-  "header": "HTTP/1.1 200 OK\r\nDate: Sun, 14 Jan 2018 13:41:39 GMT\r\nConnection: keep-alive\r\nContent-Length: 11\r\n\r\n",
-  "tag": "outbound_response",
-  "responseTime": 7,
-  "method": "GET",
-  "url": "/api/v1/resource?key=val"
+  "res": {
+    "time": 1519231699706,
+    "status": 200,
+    "header": "HTTP/1.1 200 OK\r\nDate: Wed, 21 Feb 2018 16:48:19 GMT\r\nConnection: keep-alive\r\nContent-Length: 11\r\n\r\n"
+  },
+  "pid": 42394,
+  "hostname": "MacBook-Pro.local",
+  "id": 465143,
+  "responseTime": 5,
+  "tag": "served"
 }
 ```
 
 <a name="custom-format"></a>
 ## Custom Format
 
-See [examples/customTheme.js](https://github.com/pmatzavin/fast-http-log/blob/master/examples/customTheme.js)
+See [examples/customFormat.js](https://github.com/pmatzavin/fast-http-log/blob/master/examples/customFormat.js)
 
-<a name="trace-id"></a>
-## Trace ID
+<a name="request-id"></a>
+## Request ID
 
-See [examples/traceHeader.js](https://github.com/pmatzavin/fast-http-log/blob/master/examples/traceHeader.js)
+See [examples/requestId.js](https://github.com/pmatzavin/fast-http-log/blob/master/examples/requestId.js)
+
+<a name="log-headers"></a>
+## Log Headers
+
+By default All the request's headers will be logged.
+
+If this is not the desired behavior then you can specify which request headers will be loged.
+To do this, youcan specify an Array of headers in the options.
+
+See [examples/headers.js](https://github.com/pmatzavin/fast-http-log/blob/master/examples/headers.js)
 
 <a name="benchmark"></a>
 ## Benchmark
@@ -72,9 +78,8 @@ See [examples/traceHeader.js](https://github.com/pmatzavin/fast-http-log/blob/ma
 The benchmark measures the average `throughput` (requests/second),
 for two Node.js servers that serve the 'hello world' String.
 
-One of the servers uses the `FastHttpLog`(not yet published) module for logging request/responses.
-
-The other server uses the [http-pino](https://github.com/pinojs/pino-http) module.
+- One of the servers uses the `FastHttpLog`.
+- The other server uses the [http-pino](https://github.com/pinojs/pino-http).
 
 The benchmark runs in five steps.
 
