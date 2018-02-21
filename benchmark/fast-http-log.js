@@ -1,6 +1,6 @@
 // I copied this fn from the http-pino source project
-// Just to be fair in the benchmark comparison
-// Becaue by default:
+// In order to be fair in the benchmark comparison
+// Becasue by default:
 //// the fast-http-log module will just execute a dull function:
 //// () => null
 //// and does not log a request id
