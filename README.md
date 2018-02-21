@@ -57,6 +57,19 @@ The examples can be found in the [examples](https://github.com/pmatzavin/fast-ht
   "tag": "served"
 }
 ```
+
+<a name="custom-format"></a>
+## Custom Format
+
+```js
+// example
+require('fast-http-log')({
+    stringify: (obj) => { 
+        return `${obj.req.method} ${obj.req.url} ${obj.res.status} ${obj.responseTime}ms`
+    }
+});
+```
+
 <a name="loggers"></a>
 ## Loggers
 
@@ -70,15 +83,17 @@ require('fast-http-log')({
 });
 ```
 
-<a name="custom-format"></a>
-## Custom Format
-
-See [examples/customFormat.js](https://github.com/pmatzavin/fast-http-log/blob/master/examples/customFormat.js)
-
 <a name="request-id"></a>
 ## Request ID
 
-See [examples/requestId.js](https://github.com/pmatzavin/fast-http-log/blob/master/examples/requestId.js)
+```js
+// example
+require('fast-http-log')({
+    getRequestId: (request) => {
+        return request.headers['X-Request-Id'] || 1
+    }
+});
+```
 
 <a name="log-headers"></a>
 ## Log Headers
@@ -90,7 +105,12 @@ If this is not the desired behavior,
 
 To do this, give an Array of headers in the `options` Object.
 
-See [examples/headers.js](https://github.com/pmatzavin/fast-http-log/blob/master/examples/headers.js)
+```js
+// example
+require('fast-http-log')({
+    headers: ['connection', 'Authorization'] 
+});
+```
 
 <a name="benchmark"></a>
 ## Benchmark
