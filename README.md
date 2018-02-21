@@ -7,6 +7,8 @@ Log the inbound HTTP traffic of yout server (requests/responses).
 - Log each served request/response.
 - The default log format is JSON ([Default Format](#default-format)).
 - Supports custom message formats ([Custom Format](#custom-format)).
+- No logger is required.
+- It can be used with any logger of your choice (`winston`, `pino`, `log4js` or others) ([Loggers](#loggers))
 - Supports request IDs ([Request Id](#request-id)).
 - Supports request header white-listing ([Log Headers](#log-headers))
 - It can be used with any `Node.js` framework (`Express`, `Koa`, or others).
@@ -54,6 +56,18 @@ The examples can be found in the [examples](https://github.com/pmatzavin/fast-ht
   "responseTime": 5,
   "tag": "served"
 }
+```
+<a name="loggers"></a>
+## Loggers
+
+By default no other logger is required.
+
+It Supports integration with any other logger by passing your logger instance in the `options` argument:
+
+```js
+require('fast-http-log')({
+  logger: // put your logger instance here
+});
 ```
 
 <a name="custom-format"></a>
