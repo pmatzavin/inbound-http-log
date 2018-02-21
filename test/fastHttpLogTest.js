@@ -59,7 +59,7 @@ test('log the request and the response', function(t) {
     });
 });
 
-test('use the defaults for "logger", "headers" and "stringify" params', function(t) {
+test('use the defaults for "logger", "headers" and "stringify" params', t => {
     fastHttpLog.reset();
     fastHttpLog();
     
@@ -68,7 +68,7 @@ test('use the defaults for "logger", "headers" and "stringify" params', function
     });
 });
 
-test('use the "error" level when status equals to 5xx', function(t) {
+test('use the "error" level when status equals to 5xx', t => {
     fastHttpLog.reset();
     fastHttpLog({
         logger
@@ -83,7 +83,7 @@ test('use the "error" level when status equals to 5xx', function(t) {
     });
 });
 
-test('log the "headers" that were specified in the passed options', function(t) {
+test('log the "headers" that were specified in the passed options', t => {
     fastHttpLog.reset();
     fastHttpLog({
         logger,
@@ -101,7 +101,7 @@ test('log the "headers" that were specified in the passed options', function(t) 
     });
 });
 
-test('not throw if create server has no argument', function(t) {
+test('not throw if create server has no argument', t => {
     fastHttpLog.reset();
     fastHttpLog();
 
@@ -112,7 +112,7 @@ test('not throw if create server has no argument', function(t) {
     });
 });
 
-test('throw Error if we try to appy the Proxy more than once', function(t) {
+test('throw Error if we try to appy the Proxy more than once', t => {
     fastHttpLog.reset();
     fastHttpLog();
 
@@ -123,7 +123,7 @@ test('throw Error if we try to appy the Proxy more than once', function(t) {
     t.end();
 });
 
-test('throw error if we provide a "stringy" param that is not a function', function(t) {
+test('throw error if we provide a "stringy" param that is not a function', t => {
     fastHttpLog.reset();
 
     t.throws(() => {
@@ -133,7 +133,7 @@ test('throw error if we provide a "stringy" param that is not a function', funct
     t.end();
 });
 
-test('throw error if we provide a logger Object that has no "info" method', function(t) {
+test('throw error if we provide a logger Object that has no "info" method', t => {
     fastHttpLog.reset();
 
     t.throws(() => {
@@ -145,7 +145,7 @@ test('throw error if we provide a logger Object that has no "info" method', func
     t.end();
 });
 
-test('throw error if we provide a logger object that has no "error" method', function(t) {
+test('throw error if we provide a logger object that has no "error" method', t => {
     fastHttpLog.reset();
 
     t.throws(() => {
@@ -157,7 +157,7 @@ test('throw error if we provide a logger object that has no "error" method', fun
     t.end();
 });
 
-test('throw error if we provide a headers value that is not an Array', function(t) {
+test('throw error if we provide a headers value that is not an Array', t => {
     fastHttpLog.reset();
 
     t.throws(() => {
