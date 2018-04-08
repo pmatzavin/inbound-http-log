@@ -1,4 +1,4 @@
-# FastHttpLog
+# inbound-http-log
 
 Log the inbound HTTP traffic of yout server (requests/responses).
 
@@ -134,8 +134,8 @@ require('inbound-http-log')({
 The benchmark measures the average `throughput` (requests/second),
 for two Node.js servers that serve the 'hello world' String.
 
-- One of the servers uses the `FastHttpLog`.
-- The other server uses the [http-pino](https://github.com/pinojs/pino-http).
+- One of the servers uses the `inbound-http-log` module.
+- The other server uses the [http-pino](https://github.com/pinojs/pino-http) module.
 
 The benchmark runs in five steps.
 
