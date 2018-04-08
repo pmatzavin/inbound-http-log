@@ -10,6 +10,7 @@ Log the inbound HTTP traffic of yout server (requests/responses).
 - Supports custom message formats ([Custom Format](#custom-format)).
 - No logger is required ([Loggers](#loggers)).
 - It can be used with any logger of your choice (`winston`, `pino`, `log4js` or others) ([Loggers](#loggers))
+- It can use the [morgan](https://github.com/expressjs/morgan) http-logger [use-morgan](#use-morgan).
 - Supports request IDs ([Request Id](#request-id)).
 - Supports request header white-listing ([Log Headers](#log-headers))
 - It can be used with any `Node.js` framework (`Express`, `Koa`, or others).
@@ -108,6 +109,19 @@ require('inbound-http-log')({
 
 When the `statusCode` of the response is grater than or equal to `500`, \n then the `logger.error()` method will be used.
 In all other cases the `logger.info()` method will be used.
+
+<a name="use-morgan"></a>
+## Use-morgan
+
+```js
+// See the morgan docs for available options (https://github.com/expressjs/morgan)
+const morgan = require('morgan')('tiny'); 
+require('../inbound-http-log')({morgan});
+```
+
+This setup boosts the usage of the `morgan` module by 2 ways:
+- Makes morgan usable in any Nodejs server framework or in a plain Node.js server.
+- Boost morgan's performance since `inbound-http-logger` does not use a middleware chain (TODO bench).
 
 <a name="request-id"></a>
 ## Request ID
