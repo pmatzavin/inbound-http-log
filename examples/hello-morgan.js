@@ -1,5 +1,7 @@
 const morgan = require('morgan')('tiny');
-require('../index')({morgan});
+require('../index')({
+    expressMiddleware: morgan
+});
 
 const http = require('http');
 const server = http.createServer((req, res) => {
