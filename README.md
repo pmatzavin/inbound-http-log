@@ -21,16 +21,16 @@ Log the inbound HTTP traffic of yout server (requests/responses).
 
 Install:
 
-`npm i --save fast-http-log`
+`npm i --save inbound-http-log`
 
 Use it in your server:
 
-`require('fast-http-log')()`
+`require('inbound-http-log')()`
 
 <a name="examples"></a>
 ## Examples
 
-The examples can be found in the [examples](https://github.com/pmatzavin/fast-http-log/tree/master/examples) folder.
+The examples can be found in the [examples](https://github.com/pmatzavin/inbound-http-log/tree/master/examples) folder.
 
 <a name="default-format"></a>
 ## Default Format
@@ -65,9 +65,23 @@ The examples can be found in the [examples](https://github.com/pmatzavin/fast-ht
 
 ```js
 // example
-require('fast-http-log')({
+require('inbound-http-log')({
     stringify: (obj) => { 
         return `${obj.req.method} ${obj.req.url} ${obj.res.status} ${obj.responseTime}ms`
+    }
+});
+```
+
+If the [default parsed request/response]((#default-format)) does not suit your needs, 
+then you can specify your own parsers:
+
+```js
+require('inbound-http-log')({
+    parseReq: request => { 
+        // parse the given request and return the parsed object
+    },
+    parseRes: response => {
+      // parse the given response and return the parsed object
     }
 });
 ```
@@ -80,7 +94,7 @@ By default no other logger is required.
 It Supports integration with any other logger by passing your logger instance in the `options` argument:
 
 ```js
-require('fast-http-log')({
+require('inbound-http-log')({
   logger: // put your logger instance here
 });
 ```
@@ -90,7 +104,7 @@ require('fast-http-log')({
 
 ```js
 // example
-require('fast-http-log')({
+require('inbound-http-log')({
     getRequestId: (request) => {
         return request.headers['X-Request-Id'] || 1
     }
@@ -109,7 +123,7 @@ To do this, give an Array of headers in the `options` Object.
 
 ```js
 // example
-require('fast-http-log')({
+require('inbound-http-log')({
     headers: ['connection', 'Authorization'] 
 });
 ```
@@ -143,7 +157,7 @@ Hardware:
       Memory: 16 GB
 ```
 
-![alt text](https://raw.githubusercontent.com/pmatzavin/fast-http-log/master/benchmark/reports/report-plot.png)
+![alt text](https://raw.githubusercontent.com/pmatzavin/inbound-http-log/master/benchmark/reports/report-plot.png)
 
 To run a step of the benchmark and get the results in the terminal:
 
@@ -152,7 +166,7 @@ cd benchmark
 
 npm i
 
-node fast-http-log.js
+node inbound-http-log.js
 
 bash ./bench.sh 3001
 

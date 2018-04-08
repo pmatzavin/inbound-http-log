@@ -3,7 +3,7 @@ const os = require('os');
 const http = require('http');
 const test = require('tap').test;
 
-const fastHttpLog = require('../index');
+const inboundHttpLog = require('../index');
 
 Date.prototype.getTime = () => 1518348878317;
 
@@ -52,7 +52,7 @@ test('log the request and the response', function(t) {
         assertMsg(msg, t);
     }
 
-    fastHttpLog({logger});
+    inboundHttpLog({logger});
 
     getListen()(t, () => {
         request(t);
@@ -60,8 +60,8 @@ test('log the request and the response', function(t) {
 });
 
 test('use the defaults for "logger", "headers" and "stringify" params', t => {
-    fastHttpLog.reset();
-    fastHttpLog();
+    inboundHttpLog.reset();
+    inboundHttpLog();
     
     getListen()(t, () => {
         request(t);
@@ -69,8 +69,8 @@ test('use the defaults for "logger", "headers" and "stringify" params', t => {
 });
 
 test('use the "error" level when status equals to 5xx', t => {
-    fastHttpLog.reset();
-    fastHttpLog({
+    inboundHttpLog.reset();
+    inboundHttpLog({
         logger
     });
     
@@ -84,8 +84,8 @@ test('use the "error" level when status equals to 5xx', t => {
 });
 
 test('log the "headers" that were specified in the passed options', t => {
-    fastHttpLog.reset();
-    fastHttpLog({
+    inboundHttpLog.reset();
+    inboundHttpLog({
         logger,
         headers: [
             'connection'
@@ -102,8 +102,8 @@ test('log the "headers" that were specified in the passed options', t => {
 });
 
 test('not throw if create server has no argument', t => {
-    fastHttpLog.reset();
-    fastHttpLog();
+    inboundHttpLog.reset();
+    inboundHttpLog();
 
     const server = http.createServer();
 
@@ -113,31 +113,31 @@ test('not throw if create server has no argument', t => {
 });
 
 test('throw Error if we try to appy the Proxy more than once', t => {
-    fastHttpLog.reset();
-    fastHttpLog();
+    inboundHttpLog.reset();
+    inboundHttpLog();
 
     t.throws(() => {
-        fastHttpLog();
-    }, new Error('FastHttpLog Proxy Already Applied'));
+        inboundHttpLog();
+    }, new Error('inboundHttpLog Proxy Already Applied'));
 
     t.end();
 });
 
 test('throw error if we provide a "stringy" param that is not a function', t => {
-    fastHttpLog.reset();
+    inboundHttpLog.reset();
 
     t.throws(() => {
-        fastHttpLog({stringify: {}});
+        inboundHttpLog({stringify: {}});
     }, new Error('stringify must be a function'));
 
     t.end();
 });
 
 test('throw error if we provide a logger Object that has no "info" method', t => {
-    fastHttpLog.reset();
+    inboundHttpLog.reset();
 
     t.throws(() => {
-        fastHttpLog({logger: {
+        inboundHttpLog({logger: {
             error: () => null
         }});
     }, new Error('logger.info must be a function'));
@@ -146,10 +146,10 @@ test('throw error if we provide a logger Object that has no "info" method', t =>
 });
 
 test('throw error if we provide a logger object that has no "error" method', t => {
-    fastHttpLog.reset();
+    inboundHttpLog.reset();
 
     t.throws(() => {
-        fastHttpLog({logger: {
+        inboundHttpLog({logger: {
             info: () => null
         }});
     }, new Error('logger.error must be a function'));
@@ -158,10 +158,10 @@ test('throw error if we provide a logger object that has no "error" method', t =
 });
 
 test('throw error if we provide a headers value that is not an Array', t => {
-    fastHttpLog.reset();
+    inboundHttpLog.reset();
 
     t.throws(() => {
-        fastHttpLog({headers: {}});
+        inboundHttpLog({headers: {}});
     }, new Error('headers must be an Array'));
 
     t.end();

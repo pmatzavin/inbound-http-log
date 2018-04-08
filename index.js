@@ -1,1 +1,1 @@
-module.exports = require('./lib/fastHttpLog');
+module.exports = require('./lib/inboundHttpLog');
