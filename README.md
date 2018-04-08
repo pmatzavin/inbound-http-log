@@ -4,7 +4,7 @@ Log the inbound HTTP traffic of yout server (requests/responses).
 
 ## Features
 
-- Log each served request/response.
+- Log each served request/response (one line per request-response pair).
 - It is fast ([Benchmark](#benchmark)).
 - The default log format is JSON ([Default Format](#default-format)).
 - Supports custom message formats ([Custom Format](#custom-format)).
