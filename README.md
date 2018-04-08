@@ -92,14 +92,18 @@ require('inbound-http-log')({
 ## Loggers
 
 By default no other logger is required.
+The log messages will be written in the `stdout`.
 
-It Supports integration with any other logger by passing your logger instance in the `options` argument:
+It can use any other logger by passing your logger instance in the `options` argument:
 
 ```js
 require('inbound-http-log')({
   logger: // put your logger instance here
 });
 ```
+
+When the `statusCode` of the response is grater than or equal to 500 then the `.error` level will be used.
+In all other cases the `info` level will be used.
 
 <a name="request-id"></a>
 ## Request ID
