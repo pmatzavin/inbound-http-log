@@ -102,8 +102,8 @@ require('inbound-http-log')({
 });
 ```
 
-When the `statusCode` of the response is grater than or equal to 500 then the `.error` level will be used.
-In all other cases the `info` level will be used.
+When the `statusCode` of the response is grater than or equal to `500` then the `logger.error()` method will be used.
+In all other cases the `logger.info()` method will be used.
 
 <a name="request-id"></a>
 ## Request ID
