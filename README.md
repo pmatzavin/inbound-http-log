@@ -63,16 +63,18 @@ The examples can be found in the [examples](https://github.com/pmatzavin/inbound
 <a name="custom-format"></a>
 ## Custom Format
 
+The `obj` argument in the folowing example is described here: [Default Format](#default-format)
+
 ```js
 // example
 require('inbound-http-log')({
-    stringify: (obj) => { 
+    stringify: obj => { 
         return `${obj.req.method} ${obj.req.url} ${obj.res.status} ${obj.responseTime}ms`
     }
 });
 ```
 
-If the [default parsed request/response]((#default-format)) does not suit your needs, 
+If the [Default Format](#default-format) does not suit your needs, 
 then you can specify your own parsers:
 
 ```js
