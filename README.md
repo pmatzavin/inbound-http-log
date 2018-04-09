@@ -119,10 +119,8 @@ const morgan = require('morgan')('tiny');
 require('../inbound-http-log')({expressMiddleware: morgan});
 ```
 
-This setup boosts the usage of the `morgan` module by 2 ways:
-- Makes morgan usable in any Nodejs server framework or in a plain Node.js server (not just in `Express`).
-- Boost morgan's performance since `inbound-http-logger` does rely on a middleware chain (TODO bench).
-
+This can be used if you want to use the express morgan module out of the express framework
+(for example `Koa`, `Hapi` `restify`).
 This can also be done with any other express middleware http-logger.
 
 <a name="request-id"></a>
