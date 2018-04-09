@@ -1,10 +1,10 @@
 # inbound-http-log
 
-Log the inbound HTTP traffic of yout server (requests/responses).
+Fast inbound HTTP logger for `Node.js`.
 
 ## Features
 
-- Log each served request/response (one line per request-response pair).
+- Log the inbound requests/responses (one line per request-response pair).
 - It is fast ([Benchmark](#benchmark)).
 - The default log format is JSON ([Default Format](#default-format)).
 - Supports custom message formats ([Custom Format](#custom-format)).
