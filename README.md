@@ -109,7 +109,7 @@ require('inbound-http-log')({
 });
 ```
 
-When the `statusCode` of the response is grater than or equal to `500`, \n then the `logger.error()` method will be used.
+When the `statusCode` of the response is greater than or equal to `500`, then the `logger.error()` method will be used.
 In all other cases the `logger.info()` method will be used.
 
 <a name="use-morgan"></a>
@@ -122,7 +122,8 @@ require('../inbound-http-log')({expressMiddleware: morgan});
 ```
 
 This can be used if you want to use the express morgan module out of the express framework
-(for example `Koa`, `Hapi` `restify`).
+(for example `koa`, `hapi`, `restify`).
+
 This can also be done with any other express middleware http-logger.
 
 <a name="request-id"></a>
