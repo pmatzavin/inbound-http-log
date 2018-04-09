@@ -1,11 +1,11 @@
 set terminal png
-set title "Benchmark\nfast-http-log VS pino-http" font ",20"
-set ylabel "Requests per Second (reqs/sec)"
+set title "Benchmark\ninbound-http-log VS pino-http" font ",20"
+set ylabel "Average reqs/sec"
 set xlabel "step"
 set key inside right bottom vertical Right noreverse enhanced autotitle nobox
 set samples 5
-set xrange [1:5]
-set xtics 1,1,5
+set xrange [1:4]
+set xtics 1,1,4
 set style data linespoints
 set grid xtics mytics
 set mytics 1
@@ -14,4 +14,4 @@ set grid
 set grid ytics
 set ytics 500
 
-plot "fast-http-bench.dat" lt rgb "red" title 'fast-http-log', "pino-http-bench.dat" lt rgb "blue" title 'pino-http'
+plot "inbound-http-bench.dat" lt rgb "red" title 'inbound-http-log', "pino-http-bench.dat" lt rgb "blue" title 'pino-http'
