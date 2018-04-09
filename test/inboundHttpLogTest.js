@@ -59,6 +59,27 @@ test('log the request and the response', function(t) {
     });
 });
 
+test('use an express middleware as a logger', function(t) {
+    inboundHttpLog.reset();
+
+    const expressMiddlewareAsLogger = (req, res, next) => {
+        next();
+        t.equal(
+            req.method, 
+            'GET', 
+            'use an epress middleware as a logger'
+        );
+    }
+
+    inboundHttpLog({
+        expressMiddleware: expressMiddlewareAsLogger
+    });
+
+    getListen()(t, () => {
+        request(t);
+    });
+});
+
 test('use the defaults for "logger", "headers" and "stringify" params', t => {
     inboundHttpLog.reset();
     inboundHttpLog();
