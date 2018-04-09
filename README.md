@@ -1,6 +1,8 @@
 # inbound-http-log
 
 Fast inbound HTTP logger for `Node.js`.
+It is framework agnostic, 
+as it works with any `Node.js` framework (`Koa`, `Express`, `hapi` and others).
 
 ## Features
 
@@ -10,7 +12,7 @@ Fast inbound HTTP logger for `Node.js`.
 - Supports custom message formats ([Custom Format](#custom-format)).
 - No logger is required ([Loggers](#loggers)).
 - It can be used with any logger of your choice (`winston`, `pino`, `log4js` or others) ([Loggers](#loggers))
-- It can use the [morgan](https://github.com/expressjs/morgan) http logger, or any other similar express middleware ([Use-morgan](#use-morgan)).
+- It can use the [morgan](https://github.com/expressjs/morgan) http-logger, or any other similar express http-logger middleware, without using the express framework ([Use-morgan](#use-morgan)).
 - Supports request IDs ([Request Id](#request-id)).
 - Supports request header white-listing ([Log Headers](#log-headers))
 - It can be used with any `Node.js` framework (`Express`, `Koa`, or others).
