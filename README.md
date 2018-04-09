@@ -81,7 +81,8 @@ require('inbound-http-log')({
 });
 ```
 
-If the [Default Format](#default-format) does not suit your needs, 
+If the [Default Format](#default-format) object does not contain, 
+some information that you need from the request or the response object,
 then you can specify your own parsers:
 
 ```js
