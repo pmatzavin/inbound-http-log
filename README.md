@@ -116,7 +116,7 @@ In all other cases the `logger.info()` method will be used.
 ```js
 // See the morgan docs for available options (https://github.com/expressjs/morgan)
 const morgan = require('morgan')('tiny'); 
-require('../inbound-http-log')({morgan});
+require('../inbound-http-log')({expressMiddleware: morgan});
 ```
 
 This setup boosts the usage of the `morgan` module by 2 ways:
