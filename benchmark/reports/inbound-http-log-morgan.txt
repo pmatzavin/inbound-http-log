@@ -1,0 +1,45 @@
+➜  benchmark git:(master) ✗ bash ./bench.sh 3003
+node_modules/autocannon/autocannon.js -c 100 -p 10 http://localhost:3003
+Running 10s test @ http://localhost:3003
+100 connections with 10 pipelining factor
+
+Stat         Avg     Stdev   Max
+Latency (ms) 8.49    26.18   367
+Req/Sec      11587   1514.78 12463
+Bytes/Sec    1.29 MB 167 kB  1.44 MB
+
+116k requests in 10s, 12.9 MB read
+➜  benchmark git:(master) ✗ bash ./bench.sh 3003
+node_modules/autocannon/autocannon.js -c 100 -p 10 http://localhost:3003
+Running 10s test @ http://localhost:3003
+100 connections with 10 pipelining factor
+
+Stat         Avg     Stdev   Max
+Latency (ms) 7.77    23.53   277
+Req/Sec      12664.8 416.08  13367
+Bytes/Sec    1.4 MB  45.9 kB 1.51 MB
+
+127k requests in 10s, 14.1 MB read
+➜  benchmark git:(master) ✗ bash ./bench.sh 3003
+node_modules/autocannon/autocannon.js -c 100 -p 10 http://localhost:3003
+Running 10s test @ http://localhost:3003
+100 connections with 10 pipelining factor
+
+Stat         Avg     Stdev   Max
+Latency (ms) 7.52    22.81   304
+Req/Sec      13076   478.24  14495
+Bytes/Sec    1.45 MB 60.1 kB 1.64 MB
+
+131k requests in 10s, 14.5 MB read
+➜  benchmark git:(master) ✗ bash ./bench.sh 3003
+node_modules/autocannon/autocannon.js -c 100 -p 10 http://localhost:3003
+Running 10s test @ http://localhost:3003
+100 connections with 10 pipelining factor
+
+Stat         Avg     Stdev   Max
+Latency (ms) 7.52    22.68   247
+Req/Sec      13081.6 133.44  13295
+Bytes/Sec    1.45 MB 32.1 kB 1.51 MB
+
+131k requests in 10s, 14.5 MB read
+➜  benchmark git:(master) ✗
