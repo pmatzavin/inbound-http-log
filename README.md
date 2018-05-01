@@ -116,16 +116,20 @@ In all other cases the `logger.info()` method will be used.
 <a name="use-morgan"></a>
 ## Use-morgan
 
+If you prefer the [morgan](#https://github.com/expressjs/morgan) style of customization/formatting
+, then you can pass morgan as a configuration argument.
+
+This can also be used if you want to use the morgan module without using the express framework.
+(for example `koa`, `hapi`, `restify`).
+
 ```js
 // See the morgan docs for available options (https://github.com/expressjs/morgan)
 const morgan = require('morgan')('tiny'); 
 require('../inbound-http-log')({expressMiddleware: morgan});
 ```
 
-This can be used if you want to use the express morgan module out of the express framework
-(for example `koa`, `hapi`, `restify`).
-
-This can also be done with any other express middleware http-logger.
+In this case, the rest of the formating/parsing configuration arguments(will be ignore) will be ignore and
+you should configure the morgan instance according to your needs.
 
 <a name="request-id"></a>
 ## Request ID
