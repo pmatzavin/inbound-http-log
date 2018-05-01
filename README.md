@@ -102,11 +102,13 @@ require('inbound-http-log')({
 By default no other logger is required.
 The log messages will be written in the `stdout`.
 
+If for any case you need to use another logger instead of `stdout`.
 It can use any other logger by passing your logger instance in the `options` argument:
 
 ```js
 require('inbound-http-log')({
-  logger: // put your logger instance here
+  logger: // Put your logger instance here.
+  // The logger instance must be an object with .info() and .error() methods.
 });
 ```
 
