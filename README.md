@@ -116,7 +116,7 @@ In all other cases the `logger.info()` method will be used.
 <a name="use-morgan"></a>
 ## Use-morgan
 
-If you prefer the [morgan](#https://github.com/expressjs/morgan) style of customization/formatting
+If you prefer the [morgan](https://github.com/expressjs/morgan) style of customization/formatting
 , then you can pass morgan as a configuration argument.
 
 This can also be used if you want to use the morgan module without using the express framework.
@@ -128,8 +128,8 @@ const morgan = require('morgan')('tiny');
 require('../inbound-http-log')({expressMiddleware: morgan});
 ```
 
-In this case, the rest of the formating/parsing configuration arguments(will be ignore) will be ignore and
-you should configure the morgan instance according to your needs.
+In this case, the rest of the formating/parsing configuration arguments(if any) will be ignored and
+you should configure the `morgan` instance according to your needs.
 
 <a name="request-id"></a>
 ## Request ID
