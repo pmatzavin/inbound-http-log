@@ -165,6 +165,8 @@ require('inbound-http-log')({
 <a name="benchmark"></a>
 ## Benchmark
 
+![alt text](https://raw.githubusercontent.com/pmatzavin/inbound-http-log/master/benchmark/reports/report-plot.png)
+
 The benchmark measures the average `throughput` (requests/second),
 for two Node.js servers that serve the 'hello world' String.
 
@@ -190,8 +192,6 @@ Hardware:
       Number of Processors: 1
       Memory: 16 GB
 ```
-
-![alt text](https://raw.githubusercontent.com/pmatzavin/inbound-http-log/master/benchmark/reports/report-plot.png)
 
 To run a step of the benchmark and get the results in the terminal:
 
